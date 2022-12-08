@@ -28,6 +28,15 @@ class App extends Component {
 		);
 	}
 
+	/* Esta función solamente se construye una sola vez en el componente (antes se creaba cada
+	vez que había un cambio en el input porque era una función anónima) */
+	onSearchChange = (event) => {
+		const searchField = event.target.value.toLocaleLowerCase();
+		this.setState(() => {
+			return { searchField };
+		});
+	}
+
 	render() {
 
 		// Los monsters que aparecerán serán el resultado de lo que se ponga en el input, por lo que
@@ -44,12 +53,7 @@ class App extends Component {
 					type="search"
 					placeholder="search monsters"
 					// Cada vez que se actualiza el input, el estado también.
-					onChange={(event) => {
-						const searchField = event.target.value.toLocaleLowerCase();
-						this.setState(() => {
-							return { searchField };
-						});
-					}}
+					onChange={this.onSearchChange}
 				/>
 				{filteredMonsters.map((monster) => {
 					return <h1 key={monster.id}>{monster.name}</h1>;
