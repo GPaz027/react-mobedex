@@ -32,6 +32,7 @@ class App extends Component {
 
 		// Los monsters que aparecerán serán el resultado de lo que se ponga en el input, por lo que
 		// lo que se renderizará no será el estado original, sino el resultado del filtrado.
+		// Esto de usar otro array y no el estado orignal es el principio de INMUTABILIDAD.
 		const filteredMonsters = this.state.monsters.filter((monster) => {
 			return monster.name.toLocaleLowerCase().includes(this.state.searchField);
 		});
