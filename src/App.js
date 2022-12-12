@@ -3,6 +3,7 @@ import { Component, useSyncExternalStore } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CardList from './components/card-list/card-list.component';
+import SearchBox from './components/search-box/search-box.component';
 
 // En este tipo de componentes, se corre primero el constructor, donde se inicializa el estado.
 // Luego corre el render(), que determina qué mostrar.
@@ -52,13 +53,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
-				<input
-					className="search-box"
-					type="search"
-					placeholder="search monsters"
-					// Cada vez que se actualiza el input, el estado también.
-					onChange={onSearchChange}
-				/>
+				<SearchBox onChangeHandler={onSearchChange} placeholder="search monsters" className="search-box" />
 				{/* El nombre de los componentes propios debe ser camel case SIEMPRE */}
 				<CardList monsters={filteredMonsters} />
 			</div>
