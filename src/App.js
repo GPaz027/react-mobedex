@@ -53,6 +53,7 @@ class App extends Component {
 
 		return (
 			<div className="App">
+				<h1 className="app-title">Monster Rolodex</h1>
 				<SearchBox onChangeHandler={onSearchChange} placeholder="search monsters" className="search-box" />
 				{/* El nombre de los componentes propios debe ser camel case SIEMPRE */}
 				<CardList monsters={filteredMonsters} />
